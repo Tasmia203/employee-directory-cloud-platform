@@ -1,0 +1,20 @@
+aws_region = "us-east-1"
+
+cluster_name = "employee-directory-cluster"
+
+service_name = "employee-directory-service"
+
+task_family = "employee-directory-task"
+
+container_name = "employee-directory"
+
+image_uri = "YOUR_AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/employee-directory:latest"
+
+subnet_ids = [
+  "subnet-xxxxxxxx",
+  "subnet-yyyyyyyy"
+]
+
+security_group_ids = [
+  "sg-xxxxxxxx"
+]
