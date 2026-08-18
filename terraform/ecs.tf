@@ -4,25 +4,19 @@ resource "aws_ecs_cluster" "employee_cluster" {
   name = var.cluster_name
 }
 
-# IAM Role
-
-data "aws_iam_role" "ecs_execution_role" {
-  name = "ecsTaskExecutionRole"
-}
-
 # Task Definition
 
 resource "aws_ecs_task_definition" "employee_task" {
 
-  family                   = var.task_family
+  family = var.task_family
 
   requires_compatibilities = ["FARGATE"]
 
-  network_mode             = "awsvpc"
+  network_mode = "awsvpc"
 
-  cpu                      = "1024"
+  cpu = "1024"
 
-  memory                   = "2048"
+  memory = "2048"
 
   execution_role_arn = data.aws_iam_role.ecs_execution_role.arn
 
