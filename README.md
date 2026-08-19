@@ -75,8 +75,6 @@ Created the project structure and configured Terraform for Infrastructure as Cod
 
 ### Screenshot
 
-📷 Insert screenshots of:
-
 - GitHub repository
 - Project folder structure
 - Successful `terraform init`
@@ -144,8 +142,6 @@ Provisioned the container infrastructure using Terraform.
 
 ### Screenshot
 
-📷 Insert screenshots of:
-
 - ECS Cluster
 - ECS Service
 - Task Definition
@@ -165,8 +161,6 @@ Configured centralized logging for the ECS containers.
 - Verified container startup logs
 
 ### Screenshot
-
-📷 Insert screenshots of:
 
 - CloudWatch Log Group
 - CloudWatch Log Streams
@@ -188,8 +182,6 @@ Whenever changes are pushed to GitHub, the workflow automatically executes Terra
 - Verified successful workflow execution
 
 ### Screenshot
-
-📷 Insert screenshots of:
 
 - `.github/workflows`
 - GitHub Actions workflow
@@ -217,8 +209,6 @@ The Application Load Balancer receives incoming HTTP requests and forwards them 
 
 ### Screenshot
 
-📷 Insert screenshots of:
-
 - Application Load Balancer
 - Target Group
 - Healthy Target
@@ -242,17 +232,8 @@ Validated the complete deployment and confirmed that all AWS resources work toge
 - Verified CloudWatch Logs
 - Successfully accessed the application through the ALB DNS endpoint
 
-Example API response:
-
-```json
-{
-  "message": "Employee Directory API Running"
-}
-```
 
 ### Screenshot
-
-📷 Insert screenshots of:
 
 - Working API in browser
 - ECS Running Task
