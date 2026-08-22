@@ -59,7 +59,7 @@ This project demonstrates Infrastructure as Code (IaC), containerization, cloud 
 
 # Architecture Diagram
 
-![](screenshots/architecture-diagram.png)
+<img width="850" height="686" alt="architecture-diagram" src="https://github.com/user-attachments/assets/ab7d88d8-d4a0-4208-bb78-77658e93b2e6" />
 
 ---
 
@@ -106,6 +106,16 @@ The backend API is deployed on Amazon ECS behind an Application Load Balancer.
 - Built Docker image
 - Tested Docker container locally
 - Verified API response
+
+The application was first containerized and tested locally using Docker before being uploaded to Amazon Elastic Container Registry (ECR).
+
+### Docker Image Build
+
+<img width="697" height="390" alt="Docker Build" src="https://github.com/user-attachments/assets/a3699a6f-2ed1-43aa-8444-89532282bca2" />
+
+### Running Docker Container
+
+<img width="702" height="75" alt="Docker Container" src="https://github.com/user-attachments/assets/ab76f2d3-b908-47b4-914a-47e9f3bdc0a3" />
 
 ---
 
