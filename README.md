@@ -1,16 +1,16 @@
-# AWS Project 4 – Employee Directory Cloud Platform (Docker + Amazon ECS + Terraform + CI/CD)
+# AWS Employee Directory Cloud Platform (Docker + Amazon ECS + Terraform + CI/CD)
 
 ## Project Overview
 
 This project demonstrates how to deploy a containerized Employee Directory application on AWS using modern cloud engineering practices.
 
-The backend application was containerized with Docker and pushed to Amazon Elastic Container Registry (ECR). The application was then deployed to Amazon ECS using AWS Fargate, while all AWS infrastructure was provisioned using Terraform.
+The backend application was containerized with Docker and pushed to Amazon Elastic Container Registry (ECR). The application was deployed to Amazon ECS using AWS Fargate, while all AWS infrastructure was provisioned using Terraform.
 
-To automate deployments, a GitHub Actions CI/CD pipeline was implemented. Every push to the GitHub repository automatically runs the deployment workflow.
+A GitHub Actions CI/CD pipeline was implemented to automate infrastructure deployments. Every push to the GitHub repository automatically executes the deployment workflow.
 
-For production-style networking, an Application Load Balancer (ALB) was configured to route traffic to the ECS service, with CloudWatch Logs providing centralized application monitoring.
+An Application Load Balancer (ALB) was configured to securely expose the application, while CloudWatch Logs provide centralized logging and monitoring.
 
-This project demonstrates Infrastructure as Code (IaC), containerization, cloud networking, load balancing, logging, security, and continuous deployment.
+This project demonstrates Infrastructure as Code (IaC), containerization, cloud networking, load balancing, security, logging, and continuous deployment.
 
 ---
 
@@ -19,11 +19,11 @@ This project demonstrates Infrastructure as Code (IaC), containerization, cloud 
 - Containerize a Node.js application using Docker
 - Store Docker images in Amazon ECR
 - Deploy containers on Amazon ECS (Fargate)
-- Provision infrastructure using Terraform
+- Provision AWS infrastructure using Terraform
 - Configure CloudWatch logging
-- Automate deployments using GitHub Actions
+- Implement CI/CD using GitHub Actions
 - Configure an Application Load Balancer
-- Secure networking using Security Groups
+- Secure the application using Security Groups
 - Deploy a production-style cloud application
 
 ---
@@ -57,11 +57,32 @@ This project demonstrates Infrastructure as Code (IaC), containerization, cloud 
 
 ---
 
+# Architecture Diagram
+
+![](screenshots/architecture-diagram.png)
+
+---
+
+# Frontend
+
+The Employee Directory frontend was developed locally to interact with the backend REST API.
+
+<img width="1494" height="870" alt="employee-directory-frontend" src="https://github.com/user-attachments/assets/b63f6d51-4e0a-406d-9ef5-6fd34dda21f2" />
+
+
+---
+
+# Live Backend API
+
+The backend API is deployed on Amazon ECS behind an Application Load Balancer.
+
+<img width="1506" height="626" alt="live-application" src="https://github.com/user-attachments/assets/e2ed198f-1484-460c-8db6-9a4e6b38c11b" />
+
+---
+
 # Project Phases
 
 ## Phase 1 – Project Setup
-
-Created the project structure and configured Terraform for Infrastructure as Code.
 
 ### Completed Tasks
 
@@ -73,17 +94,9 @@ Created the project structure and configured Terraform for Infrastructure as Cod
 - Configured AWS credentials
 - Initialized Terraform
 
-### Screenshot
-
-- GitHub repository
-- Project folder structure
-- Successful `terraform init`
-
 ---
 
 ## Phase 2 – Containerizing the Application
-
-Built the Employee Directory API and packaged it into a Docker container.
 
 ### Completed Tasks
 
@@ -94,85 +107,81 @@ Built the Employee Directory API and packaged it into a Docker container.
 - Tested Docker container locally
 - Verified API response
 
-### Screenshot
-
-📷 Insert screenshots of:
-
-- Dockerfile
-- Docker image build
-- Running Docker container
-- Local API response
-
 ---
 
 ## Phase 3 – Amazon Elastic Container Registry (ECR)
 
-Created a private container registry and uploaded the Docker image.
-
 ### Completed Tasks
 
 - Created Amazon ECR repository
-- Logged Docker into ECR
 - Tagged Docker image
-- Pushed image to ECR
-- Verified uploaded image
+- Pushed Docker image to Amazon ECR
+- Verified uploaded container image
 
-### Screenshot
+### Repository Overview
 
-📷 Insert screenshots of:
+<img width="1509" height="671" alt="Amazon ECR – Repository Overview (Summary tab)" src="https://github.com/user-attachments/assets/5c330b71-d14b-4076-a25d-56368eb232a1" />
 
-- Amazon ECR repository
-- Successful Docker push
-- Uploaded Docker image
+### Amazon ECR - Uploaded Docker Image Repository
+
+<img width="1507" height="800" alt="Amazon ECR – Employee Directory Docker Repository" src="https://github.com/user-attachments/assets/6227dfe7-b22c-4470-9073-8169aa82bd0a" />
+
 
 ---
 
 ## Phase 4 – Amazon ECS (Fargate)
 
-Provisioned the container infrastructure using Terraform.
-
 ### Completed Tasks
 
 - Created ECS Cluster
-- Created Task Definition
+- Created ECS Task Definition
 - Created ECS Service
 - Configured AWS Fargate
 - Configured IAM Task Execution Role
 - Configured container networking
 
-### Screenshot
+### Amazon ECS Cluster
 
-- ECS Cluster
-- ECS Service
-- Task Definition
-- Running ECS Task
+<img width="1503" height="746" alt="ecs-cluster" src="https://github.com/user-attachments/assets/c3ed9e9a-04b0-4a4a-94c3-73c9ad20be85" />
+
+### ECS Service
+
+<img width="1512" height="771" alt="ecs-service" src="https://github.com/user-attachments/assets/b900a25a-dc24-45e9-ab34-4533fc6649f6" />
+
+### Running ECS Task
+
+<img width="1512" height="736" alt="running-task" src="https://github.com/user-attachments/assets/f0e0e400-2cac-47cf-9867-9940eebfbf00" />
+
+### Task Definition Overview
+
+<img width="1511" height="802" alt="task-definition-overview" src="https://github.com/user-attachments/assets/ed53f07a-7ac6-43cf-8839-3a61327be4d7" />
+
+### Task Definition Container
+
+<img width="1509" height="733" alt="task-definition-container" src="https://github.com/user-attachments/assets/e55b1fb9-2ada-4238-a931-cd4a2d2c1eac" />
 
 ---
 
 ## Phase 5 – CloudWatch Logging
-
-Configured centralized logging for the ECS containers.
 
 ### Completed Tasks
 
 - Created CloudWatch Log Group
 - Configured ECS Log Driver
 - Verified application logs
-- Verified container startup logs
+- Verified successful container startup
 
-### Screenshot
+### CloudWatch
 
-- CloudWatch Log Group
-- CloudWatch Log Streams
-- Container logs
+<img width="1512" height="563" alt="cloudwatch-log-group" src="https://github.com/user-attachments/assets/9a867faf-3c1e-4f1b-b56d-9b4efe67b32c" />
+
+<img width="1250" height="459" alt="cloudwatch-log-stream" src="https://github.com/user-attachments/assets/08dbfbd4-3425-4b65-aa5a-942b790e3ae3" />
+
+<img width="1509" height="796" alt="cloudwatch-running-logs" src="https://github.com/user-attachments/assets/487da4d3-6772-4a4e-9253-3d73b0a341c7" />
 
 ---
 
 ## Phase 6 – GitHub Actions CI/CD Pipeline
-
-Implemented Continuous Integration and Continuous Deployment using GitHub Actions.
-
-Whenever changes are pushed to GitHub, the workflow automatically executes Terraform and deploys infrastructure updates.
 
 ### Completed Tasks
 
@@ -181,20 +190,14 @@ Whenever changes are pushed to GitHub, the workflow automatically executes Terra
 - Automated Terraform deployment
 - Verified successful workflow execution
 
-### Screenshot
+### GitHub Actions
 
-- `.github/workflows`
-- GitHub Actions workflow
-- Successful workflow run
-- Green checkmark pipeline
+<img width="1508" height="818" alt="Github Actions" src="https://github.com/user-attachments/assets/d120e0f3-3389-4796-acc0-79e7a7d247d7" />
+
 
 ---
 
 ## Phase 7 – Application Load Balancer & Security
-
-Configured production-style networking for the ECS service.
-
-The Application Load Balancer receives incoming HTTP requests and forwards them to the ECS service. Security Groups were configured to allow HTTP traffic to the ALB while permitting only the ALB to communicate with the ECS application on port 3000.
 
 ### Completed Tasks
 
@@ -204,24 +207,28 @@ The Application Load Balancer receives incoming HTTP requests and forwards them 
 - Configured Health Checks
 - Connected ECS Service to Target Group
 - Created ALB Security Group
-- Configured Security Group rules
+- Created ECS Security Group
+- Configured inbound and outbound security rules
 - Verified healthy targets
 
-### Screenshot
+### Application Load Balancer
 
-- Application Load Balancer
-- Target Group
-- Healthy Target
-- Listener
-- ALB Security Group
-- ECS Security Group
-- Security Group inbound rules
+<img width="1512" height="803" alt="alb-overview" src="https://github.com/user-attachments/assets/12da1ccf-dadd-4814-84b2-5c511d3252a6" />
+
+
+<img width="1512" height="769" alt="alb-listener" src="https://github.com/user-attachments/assets/53eb35b4-22cd-4bc3-8741-2e4cf9bf36fa" />
+
+
+<img width="1512" height="798" alt="target-group" src="https://github.com/user-attachments/assets/4472503a-3d84-4629-ae98-3ffc291e64a2" />
+
+
+### Security Groups
+
+<img width="1508" height="772" alt="ecs-security-group" src="https://github.com/user-attachments/assets/b753e4cc-a976-42b3-b97f-d0e7324275df" />
 
 ---
 
-## Phase 8 – Testing and Validation
-
-Validated the complete deployment and confirmed that all AWS resources work together correctly.
+## Phase 8 – Testing & Validation
 
 ### Completed Tasks
 
@@ -232,14 +239,26 @@ Validated the complete deployment and confirmed that all AWS resources work toge
 - Verified CloudWatch Logs
 - Successfully accessed the application through the ALB DNS endpoint
 
+Example API Response
 
-### Screenshot
+```json
+{
+  "message": "Employee Directory API Running"
+}
+```
 
-- Working API in browser
-- ECS Running Task
-- Healthy Target Group
-- CloudWatch Logs
-- Final GitHub repository
+---
+
+## Terraform Infrastructure
+
+Infrastructure was provisioned entirely using Terraform.
+
+<img width="304" height="563" alt="terraform-folder" src="https://github.com/user-attachments/assets/118d644a-344c-4672-9872-d4b7b44de25e" />
+
+<img width="1306" height="241" alt="terraform-plan" src="https://github.com/user-attachments/assets/68c54268-a125-4c4b-a7ff-715dcf46ab20" />
+
+<img width="1277" height="378" alt="terraform-apply" src="https://github.com/user-attachments/assets/d82fb20c-19f2-4f2e-8429-8510999ae808" />
+
 
 ---
 
@@ -250,7 +269,7 @@ Validated the complete deployment and confirmed that all AWS resources work toge
 - Amazon Elastic Container Registry (ECR)
 - Infrastructure as Code (Terraform)
 - GitHub Actions CI/CD
-- Application Load Balancer (ALB)
+- Application Load Balancer
 - Target Groups
 - Cloud Networking
 - Security Groups
@@ -266,28 +285,27 @@ Validated the complete deployment and confirmed that all AWS resources work toge
 Through this project I learned how to:
 
 - Build and containerize applications using Docker.
-- Push container images to Amazon ECR.
+- Push Docker images to Amazon ECR.
 - Deploy containers using Amazon ECS Fargate.
 - Provision AWS infrastructure using Terraform.
-- Configure centralized application logging using CloudWatch.
-- Automate infrastructure deployment using GitHub Actions.
+- Configure centralized logging using CloudWatch.
+- Automate infrastructure deployments using GitHub Actions.
 - Configure an Application Load Balancer with Target Groups and Listeners.
-- Implement secure networking using AWS Security Groups.
+- Secure AWS resources using Security Groups and IAM.
 - Deploy and manage a production-style containerized application on AWS.
 
 ---
 
 # Future Improvements
 
-Potential enhancements include:
-
-- HTTPS using AWS Certificate Manager (ACM)
-- Custom domain using Amazon Route 53
-- Amazon RDS integration
-- AWS Secrets Manager
-- ECS Auto Scaling
-- CloudWatch dashboards and alarms
-- Blue/Green deployments
-- Multi-container architecture
-- Amazon ElastiCache
-- Migration to Amazon EKS (Kubernetes)
+- Deploy the frontend to Amazon S3
+- Distribute the frontend using Amazon CloudFront
+- Connect the hosted frontend to the ECS backend
+- Enable HTTPS using AWS Certificate Manager (ACM)
+- Configure a custom domain with Amazon Route 53
+- Integrate Amazon RDS
+- Store secrets in AWS Secrets Manager
+- Implement ECS Auto Scaling
+- Create CloudWatch dashboards and alarms
+- Implement Blue/Green deployments
+- Migrate the application to Amazon EKS (Kubernetes)
